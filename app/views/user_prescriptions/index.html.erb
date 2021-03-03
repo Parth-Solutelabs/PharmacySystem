@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Prescriptions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_prescriptions.each do |user_prescription| %>
+      <tr>
+        <td><%= link_to 'Show', user_prescription %></td>
+        <td><%= link_to 'Edit', edit_user_prescription_path(user_prescription) %></td>
+        <td><%= link_to 'Destroy', user_prescription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Prescription', new_user_prescription_path %>

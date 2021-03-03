@@ -1,0 +1,2 @@
+class UsersPrescription < ApplicationRecord
+end
