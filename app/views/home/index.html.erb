@@ -1,3 +1,21 @@
-<h1>Home#index</h1>
+<h1>Pharmacy Management System</h1>
 
-<p>Find me in app/views/home/index.html.erb</p>
+
+<% if user_signed_in?  %>
+    <% if current_user.title == "Pharmacist"%>
+        <%= link_to "Show Prescriptions", prescriptions_path %>
+        <br/>
+        <%= link_to "Create Prescriptions", new_prescription_path  %>
+        <br/>
+        <%= link_to "Edit Prescriptions", edit_prescription_path  %>
+    <% end %>
+    <% if current_user.title == "Assistant"%>
+        <%= link_to "Show Prescriptions", prescriptions_path %>
+        <br/>
+        <%= link_to "Edit Prescriptions", edit_prescription_path  %>
+    <% end %>
+<%else %>
+    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+    <br/>
+    <%= link_to "Sign in!", new_user_session_path, class: "btn btn-lg btn-primary" %>
+<% end %>

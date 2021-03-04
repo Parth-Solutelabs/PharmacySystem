@@ -24,7 +24,7 @@ class PrescriptionsController < ApplicationController
   # POST /prescriptions
   # POST /prescriptions.json
   def create
-    @prescription = Prescription.new(prescription_params)
+    @prescription = current_user.prescriptions.build(prescription_params)
 
     respond_to do |format|
       if @prescription.save
@@ -69,6 +69,6 @@ class PrescriptionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def prescription_params
-      params.require(:prescription).permit(:presid, :pharmacist_id, :patient_name, :drug_name, :dosage, :quantity, :deliverdate, :delivered)
+      params.require(:prescription).permit(:patient_name, :drug_name, :dosage, :quantity, :deliverdate, :delivered)
     end
 end

@@ -14,5 +14,3 @@ class User < ApplicationRecord
   has_many :prescriptions
   
 end
-t.string "title"
-    t.string "name"

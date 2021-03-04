@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>Presid</th>
       <th>Pharmacist</th>
       <th>Patient name</th>
       <th>Drug name</th>
@@ -20,8 +19,7 @@
   <tbody>
     <% @prescriptions.each do |prescription| %>
       <tr>
-        <td><%= prescription.presid %></td>
-        <td><%= prescription.pharmacist_id %></td>
+        <td><%= prescription.user_id %></td>
         <td><%= prescription.patient_name %></td>
         <td><%= prescription.drug_name %></td>
         <td><%= prescription.dosage %></td>
