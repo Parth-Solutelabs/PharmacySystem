@@ -6,6 +6,8 @@ class Prescription < ApplicationRecord
     validates :deliverdate, presence: true
 
     belongs_to :user
+    has_many :users
+    has_many :users_prescriptions
 end
 
 

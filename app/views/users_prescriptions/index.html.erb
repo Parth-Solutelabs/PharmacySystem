@@ -5,6 +5,8 @@
 <table>
   <thead>
     <tr>
+      <th>Assistant_Id</th>
+      <th>Prescription_Id</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +14,8 @@
   <tbody>
     <% @users_prescriptions.each do |users_prescription| %>
       <tr>
+        <td><%= users_prescription.user_id %></td>
+        <td><%= users_prescription.prescription_id %></td>
         <td><%= link_to 'Show', users_prescription %></td>
         <td><%= link_to 'Edit', edit_users_prescription_path(users_prescription) %></td>
         <td><%= link_to 'Destroy', users_prescription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -21,5 +25,5 @@
 </table>
 
 <br>
-
+<%= link_to 'Home page', home_index_path %>
 <%= link_to 'New Users Prescription', new_users_prescription_path %>

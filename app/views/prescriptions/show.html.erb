@@ -1,14 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Presid:</strong>
-  <%= @prescription.presid %>
-</p>
 
-<p>
-  <strong>Pharmacist:</strong>
-  <%= @prescription.pharmacist_id %>
-</p>
+<% if current_user.title == "Pharmacist"%>
+
 
 <p>
   <strong>Patient name:</strong>
@@ -39,6 +33,12 @@
   <strong>Delivered:</strong>
   <%= @prescription.delivered %>
 </p>
+
+<% if current_user.title == "Pharmacist"%>
+  <%= link_to 'Assign Assistant', new_users_prescription_path %> 
+<% end %>
+
+<br/>
 
 <%= link_to 'Edit', edit_prescription_path(@prescription) %> |
 <%= link_to 'Back', prescriptions_path %>

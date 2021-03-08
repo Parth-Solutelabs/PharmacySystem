@@ -1,4 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Assistant Id:</strong>
+  <%= @users_prescription.user_id %>
+</p>
+<p>
+  <strong>Prescription Id:</strong>
+  <%= @users_prescription   .prescription_id %>
+</p>
+
 <%= link_to 'Edit', edit_users_prescription_path(@users_prescription) %> |
 <%= link_to 'Back', users_prescriptions_path %>

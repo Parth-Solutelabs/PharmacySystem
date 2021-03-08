@@ -69,6 +69,6 @@ class UsersPrescriptionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def users_prescription_params
-      params.fetch(:users_prescription, {})
+      params.require(:users_prescription).permit(:user_id, :prescription_id)
     end
 end

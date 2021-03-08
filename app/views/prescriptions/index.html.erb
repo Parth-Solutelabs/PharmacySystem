@@ -35,5 +35,13 @@
 </table>
 
 <br>
+<% if user_signed_in?  %>
+  <% if current_user.title == "Pharmacist"%>
+    <%= link_to 'New Prescription', new_prescription_path %>
+    <%= link_to 'Home', home_index_path %>
+  <%end %>
+  <% if current_user.title == "Assistant"%>
+      <%= link_to 'Home', home_index_path %>
+  <%end %>
+<%end%>
 
-<%= link_to 'New Prescription', new_prescription_path %>

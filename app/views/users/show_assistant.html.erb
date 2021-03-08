@@ -1,0 +1,22 @@
+
+<table>
+  <thead>
+    <tr>
+      <th>Assistant_Id</th>
+      <th>Assistant_Name</th>
+      <th>Assistant_Email</th>
+      <th colspan="10"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Edit', "/users/edit?id=#{user.id}" %></td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
