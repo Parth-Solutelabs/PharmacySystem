@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+
+<% if current_user.title == "Pharmacist"%>
+
+
+<p>
+  <strong>Patient name:</strong>
+  <%= @prescription.patient_name %>
+</p>
+
+<p>
+  <strong>Drug name:</strong>
+  <%= @prescription.drug_name %>
+</p>
+
+<p>
+  <strong>Dosage:</strong>
+  <%= @prescription.dosage %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @prescription.quantity %>
+</p>
+
+<p>
+  <strong>Deliverdate:</strong>
+  <%= @prescription.deliverdate %>
+</p>
+
+<p>
+  <strong>Delivered:</strong>
+  <%= @prescription.delivered %>
+</p>
+
+<% if current_user.title == "Pharmacist"%>
+  <%= link_to 'Assign Assistant', new_users_prescription_path %> 
+<% end %>
+
+<br/>
+
+<%= link_to 'Edit', edit_prescription_path(@prescription) %> |
+<%= link_to 'Back', prescriptions_path %>

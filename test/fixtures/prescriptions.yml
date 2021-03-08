@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  presid: 1
+  pharmacist_id: 1
+  patient_name: MyString
+  drug_name: MyString
+  dosage: MyString
+  quantity: 1
+  deliverdate: 2021-03-03 17:30:54
+  delivered: false
+
+two:
+  presid: 1
+  pharmacist_id: 1
+  patient_name: MyString
+  drug_name: MyString
+  dosage: MyString
+  quantity: 1
+  deliverdate: 2021-03-03 17:30:54
+  delivered: false

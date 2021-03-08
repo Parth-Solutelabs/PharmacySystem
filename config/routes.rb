@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'sessions/new'
+  resources :users_prescriptions
+  resources :prescriptions 
+  get 'users/show_assistant'
+  
+  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
   get 'home/index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  
   root to: "home#index"
+
 end

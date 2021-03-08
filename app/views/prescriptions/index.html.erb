@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Prescriptions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pharmacist</th>
+      <th>Patient name</th>
+      <th>Drug name</th>
+      <th>Dosage</th>
+      <th>Quantity</th>
+      <th>Deliverdate</th>
+      <th>Delivered</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prescriptions.each do |prescription| %>
+      <tr>
+        <td><%= prescription.user_id %></td>
+        <td><%= prescription.patient_name %></td>
+        <td><%= prescription.drug_name %></td>
+        <td><%= prescription.dosage %></td>
+        <td><%= prescription.quantity %></td>
+        <td><%= prescription.deliverdate %></td>
+        <td><%= prescription.delivered %></td>
+        <td><%= link_to 'Show', prescription %></td>
+        <td><%= link_to 'Edit', edit_prescription_path(prescription) %></td>
+        <td><%= link_to 'Destroy', prescription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if user_signed_in?  %>
+  <% if current_user.title == "Pharmacist"%>
+    <%= link_to 'New Prescription', new_prescription_path %>
+    <%= link_to 'Home', home_index_path %>
+  <%end %>
+  <% if current_user.title == "Assistant"%>
+      <%= link_to 'Home', home_index_path %>
+  <%end %>
+<%end%>
+

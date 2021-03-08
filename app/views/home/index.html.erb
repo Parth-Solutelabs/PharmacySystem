@@ -1,2 +1,28 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Pharmacy Management System</h1>
+  
+
+<% if user_signed_in?  %>
+    <% if current_user.title == "Pharmacist"%>
+        <%= link_to "Show Prescriptions", prescriptions_path %>
+        <br/>
+        <%= link_to "Create Prescriptions", new_prescription_path  %>
+        <br/>
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+        <br/>
+        <%= link_to "Assign Prescription", new_users_prescription_path, :method => :delete %>
+
+        <%= link_to "Show Assistant",  users_show_assistant_path %>
+
+        <br/>
+    <% end %>
+    <% if current_user.title == "Assistant"%>
+        
+        <%= link_to "Show Prescriptions", prescriptions_path %>
+        <br/>
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+    <% end %>
+<%else %>
+    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+    <br/>
+    <%= link_to "Sign in!", new_user_session_path, class: "btn btn-lg btn-primary" %>
+<% end %>

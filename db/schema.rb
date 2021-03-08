@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_172919) do
+ActiveRecord::Schema.define(version: 2021_03_06_072319) do
+
+  create_table "prescriptions", force: :cascade do |t|
+    t.string "patient_name"
+    t.string "drug_name"
+    t.string "dosage"
+    t.integer "quantity"
+    t.datetime "deliverdate"
+    t.boolean "delivered"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_prescriptions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -20,8 +33,20 @@ ActiveRecord::Schema.define(version: 2021_03_01_172919) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "phone"
+    t.string "title"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "users_prescriptions", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "prescription_id"
+    t.index ["prescription_id"], name: "index_users_prescriptions_on_prescription_id"
+    t.index ["user_id"], name: "index_users_prescriptions_on_user_id"
   end
 
 end
