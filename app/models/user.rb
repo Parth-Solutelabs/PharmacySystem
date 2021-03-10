@@ -11,7 +11,8 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false } 
   
-  has_many :prescriptions
+  has_many :created, class_name:"Prescription", foreign_key:"user_id"
   has_many :users_prescriptions
+  has_many :prescriptions, through: :users_prescriptions
   
 end
