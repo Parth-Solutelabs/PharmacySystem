@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @users_prescriptions.each do |users_prescription| %>
+    <% current_user.prescriptions.each do |users_prescription| %>
       <tr>
         <td><%= users_prescription.user_id %></td>
         <td><%= users_prescription.prescription_id %></td>
